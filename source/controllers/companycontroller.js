@@ -2,15 +2,15 @@ const dbConnection = require('../Database/config')
 
 
  const GetAllCompanies = (request, response) => {
-   let sqlQuery = 'SELECT * FROM companies';
-   let query = dbConnection.query(sqlQuery, (error, results) => {
-       if(error){
-         console.log(error)
-         return
-       }
-       response.status(200).json(results)
-      
-   });
+    let sqlQuery = 'SELECT * FROM companies';
+    let query = dbConnection.query(sqlQuery, (error, results) => {
+        if(error){
+            console.log(error)
+            return
+        }
+        response.status(200).json(results)
+        
+    });
 };
 
  const GetCompanyById = (request, response) => {
