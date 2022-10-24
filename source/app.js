@@ -26,3 +26,5 @@ app.use('/',founderrouter)
 app.listen('3001', ()=>{
     console.log("server started on Port 3001")
 })
+
+module.exports = app
