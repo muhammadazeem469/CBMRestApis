@@ -1,12 +1,12 @@
 const dbConnection = require('../Database/config')
 
 
- const GetAllCompanies = (request, response) => {
+const GetAllCompanies = (request, response) => {
     let sqlQuery = 'SELECT * FROM companies';
     let query = dbConnection.query(sqlQuery, (error, results) => {
         if(error){
             console.log(error)
-            return
+            return response.status(400).json(error)
         }
         response.status(200).json(results)
         
@@ -65,10 +65,10 @@ const dbConnection = require('../Database/config')
 }
 
    let sqlQuery = 'INSERT INTO companies (CompanyName, City,State, Description, FoundedDate) VALUES ( ?,?,?,?,? )';
-   let query = dbConnection.query(sqlQuery, companyObject, (err, result) => {
-      if(err){
-         console.log(err)
-         return
+   let query = dbConnection.query(sqlQuery, companyObject, (error, result) => {
+      if(error){
+         console.log(error)
+         return response.status(400).json(error)
        }
        response.status(200).json(result)
    });
